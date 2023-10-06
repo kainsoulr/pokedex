@@ -1,10 +1,12 @@
 import './App.css';
+import { AppRouter } from './AppRouter';
+import { PokemonProvider } from './context/PokemonProvider';
 
 function App() {
   return (
-    <div className="App">
-      
-    </div>
+    <PokemonProvider>
+      <AppRouter></AppRouter>
+    </PokemonProvider>
   );
 }
 
