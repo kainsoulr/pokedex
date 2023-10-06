@@ -1,4 +1,7 @@
-# Getting Started with Create React App
+Pokedex
+
+API: [PokeApi](https://pokeapi.co/api/v2/)
+Tutorial: [Pokedex for beginners w/ React](https://youtu.be/BVQrG-Bp-94?si=inBqH8Ub6skxiUhg)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
