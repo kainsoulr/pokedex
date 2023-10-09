@@ -92,12 +92,12 @@ header form {
 	outline: none;
 	border-radius: 25px;
 	padding: 15px 30px;
-	font-family: inherit;
 	color: #fff;
 	background-color: var(--color-primary);
 	cursor: pointer;
-	font-weight: 500;
+	font-size: 20px;
 	letter-spacing: 2px;
+	transform: scaleX(-1)
 }
 
 .btn-search:hover {

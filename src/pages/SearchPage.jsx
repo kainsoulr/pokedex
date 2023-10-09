@@ -8,7 +8,7 @@ export const SearchPage = () => {
     const location = useLocation()
 
     const {globalPokemons} = useContext(PokemonContext)
-
+    
     const searchResult = globalPokemons.filter(pokemon => pokemon.name.includes(location.state))
 
 

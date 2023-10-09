@@ -23,7 +23,7 @@ export const Nav = () => {
 			<header className='container'>
 				<Link to='/' className='logo'>
 					<img
-						src='https://archives.bulbagarden.net/media/upload/4/4b/Pok%C3%A9dex_logo.png'
+						src={`./pokedex-logo.png`}
 						alt='Logo Pokedex'
 					/>
 				</Link>
@@ -54,7 +54,9 @@ export const Nav = () => {
 						/>
 					</div>
 
-					<button className='btn-search'>Buscar</button>
+					<button className='btn-search'>
+						⌕
+					</button>
 				</form>
 			</header>
 
