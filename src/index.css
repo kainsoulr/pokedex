@@ -420,7 +420,6 @@ h1 {
 }
 
 
-
 .container-loader {
 	display: flex;
 	justify-content: center;
@@ -456,9 +455,6 @@ h1 {
 
 
 /*POKEMON LIST*/
-.card-list-pokemon {
-	display: grid;
-}
 
 .pokemon-list-card {
 	background-color: white;
@@ -528,3 +524,40 @@ h1 {
 .red-text {
 	color: red;
 }
+
+
+
+/*MOBILE VERSION POKEDEX PAGE*/
+
+@media only screen and (max-width: 767px) {
+	.card-list-pokemon {
+		grid-template-columns: repeat(2, 1fr)!important;
+		gap: 10px !important;
+	}
+
+	header {
+		display: grid !important;
+		padding: 10px !important;
+	}
+	
+	.logo img {
+		padding: 10px;
+	}
+	.form-group>input:last-child {
+		width: 150px !important;
+	}
+
+	.card-list-pokemon{
+		padding: 10px !important;
+	}
+
+	.p-search{
+		padding: 18px !important;
+		margin-bottom: 10px !important;
+	}
+
+	.pokemon-container{
+		max-width: 350px !important;
+	}
+}
+

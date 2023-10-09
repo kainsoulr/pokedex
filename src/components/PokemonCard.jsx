@@ -8,7 +8,7 @@ export const PokemonCard = ({ pokemon }) => {
                 <img className="pokemon-list-image"
                     src={pokemon.sprites.other.dream_world.front_default}>
                 </img>
-                <p className="pokemon-list-number">Nº  {pokemon.game_indices[9].game_index}</p>
+                <p className="pokemon-list-number">Nº  {pokemon.id}</p>
                 <h2 className="pokemon-card-name">{pokemon.forms[0].name}</h2>
                 <div className="pokemon-types-container">
                     {pokemon.types.map((typeData, index) => (

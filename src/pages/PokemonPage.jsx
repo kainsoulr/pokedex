@@ -49,7 +49,7 @@ export const PokemonPage = () => {
                             </div>
                             <div className="pokemon-stats">
                                 <div className="pokemon-stat">
-                                    Altura: <span>{pokemon.height}</span>
+                                    Altura: <span>{pokemon.height/10}m</span>
                                 </div>
                                 <div className="pokemon-stat">
                                     Peso: <span>{pokemon.weight}KG</span>

@@ -1,13 +1,12 @@
+import {  React, useEffect, useState } from "react";
 import axios from 'axios';
-import { useState } from "react";
-import { React, useEffect } from "react";
 import { PokemonContext } from "./PokemonContext";
 import { useForm } from '../hook/useForm';
 
 export const PokemonProvider = ({children}) => {
 
-    const [pokemons, setPokemons] = useState([])
-    const [allPokemons, setAllPokemons] = useState([])
+    const [allPokemons, setAllPokemons] = useState([]);
+    const [globalPokemons, setGlobalPokemons] = useState([]);
     const [offset, setOffset] = useState(0)
 
     const { valueSearch, onInputChange, onResetForm } = useForm({
@@ -15,43 +14,49 @@ export const PokemonProvider = ({children}) => {
     })
 
     const [loading, setLoading] = useState(true)
-    const [active, setActive] = useState(false)
 
-    const getPokemons = async(limit= 20) => {
-        const baseURL = 'https://pokeapi.co/api/v2/'
-        const response = await axios.get(`${baseURL}pokemon?limit=${limit}&offset=${offset}`)
-        const data = response.data
+    const getAllPokemons = async (limit = 20) => {
+		const baseURL = 'https://pokeapi.co/api/v2/';
 
-        const promises = data.results.map(async(pokemon) => {
-            const response = await fetch(pokemon.url)
-            const data = response.json()
-            return data
-        })
+		const res = await fetch(
+			`${baseURL}pokemon?limit=${limit}&offset=${offset}`
+		);
+		const data = await res.json();
 
-        const results = await Promise.all(promises)
+		const promises = data.results.map(async pokemon => {
+			const res = await fetch(pokemon.url);
+			const data = await res.json();
+			return data;
+		});
+		const results = await Promise.all(promises);
 
-        setPokemons(...pokemons, ...results)
-        setLoading(false)
+		setAllPokemons([...allPokemons, ...results]);
+		setLoading(false);
+	};
 
-    }
-
-    const getAllPokemons = async() => {
-        const baseURL = 'https://pokeapi.co/api/v2/'
-        const response = await axios.get(`${baseURL}pokemon?=100000&offset=0`)
-        const data = response.data
-
-        const promises = data.results.map(async(pokemon) => {
-            const response = await fetch(pokemon.url)
-            const data = response.json()
-            return data
-        })
-
-        const results = await Promise.all(promises);
-
-        setAllPokemons(results)
-        setLoading(false)
+    const getGlobalPokemons = async () => {
+        const baseURL = 'https://pokeapi.co/api/v2/';
+        
+        try {
+            const response = await fetch(`${baseURL}pokemon?limit=1292&offset=0`);
+            const data = await response.json();
+            
+            const promises = data.results.map(async (pokemon) => {
+                const response = await fetch(pokemon.url);
+                const data = await response.json();
+                return data;
+            });
+            
+            const globalResults = await Promise.all(promises);
+            
+            setGlobalPokemons(globalResults);
+            setLoading(false);
+        } catch (error) {
+            console.error('Error fetching global pokemons:', error);
+            setLoading(false);
+        }
+    };
     
-    }
 
     const getPokemonByID = async id => {
 		const baseURL = 'https://pokeapi.co/api/v2/';
@@ -62,14 +67,16 @@ export const PokemonProvider = ({children}) => {
 	};
 
     useEffect(() => {
-        getPokemons()
-        
-    }, []);
+		getAllPokemons();
+	}, [offset]);
 
-    useEffect(() => {
-        getAllPokemons()
-    }, []);
+	useEffect(() => {
+		getGlobalPokemons();
+	}, []);
 
+    const loadMorePokemons = () => {
+        setOffset(offset+20)
+    }
 
     return (
         <PokemonContext.Provider 
@@ -77,13 +84,12 @@ export const PokemonProvider = ({children}) => {
             valueSearch,
             onInputChange,
             onResetForm,
-            pokemons,
             allPokemons,
+            globalPokemons,
             getPokemonByID,
             loading,
             setLoading,
-            active,
-            setActive
+            loadMorePokemons
         }}>
             {children}
         </PokemonContext.Provider>
