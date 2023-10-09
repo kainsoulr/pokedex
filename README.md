@@ -1,6 +1,6 @@
 ## Pokedex
 
-![Pokedex Logo](./public/logo.png)
+<img src="./public/logo.png" alt="Pokedex Logo" style="border-radius: 8px;">
 
 ## Ejecutar proyecto:
 
