@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans&display=swap');
 
 :root {
 	--color-fire: #ff7402;
@@ -22,8 +22,8 @@
 	--color-shadow: #7b62a3;
 	--color-unknow: #757575;
 
-	--color-primary: #006d77;
-	--color-primary-hover: #83c5be;
+	--color-primary: red;
+	--color-primary-hover: rgb(245, 82, 76);
 }
 
 * {
@@ -33,15 +33,16 @@
 }
 
 body {
-	font-family: 'Montserrat';
+	font-family: 'Pixelify Sans', cursive;
+	background-color: rgba(255, 251, 251, 0.8);
 }
-/* Globales */
+
 .container {
 	max-width: 1200px;
 	margin: 0 auto;
 }
 
-/* Header */
+
 header {
 	display: flex;
 	align-items: center;
@@ -72,7 +73,7 @@ header form {
 }
 
 .form-group input {
-	/* padding: 15px 30px; */
+
 	font-family: inherit;
 	width: 300px;
 	border: none;
@@ -104,7 +105,7 @@ header form {
 	color: #000;
 }
 
-/* Btn Filter */
+
 .container-filter {
 	display: flex;
 }
@@ -124,7 +125,7 @@ header form {
 	stroke: #555;
 }
 
-/* Card List Pokemon */
+
 .card-list-pokemon {
 	display: grid;
 	grid-template-columns: repeat(4, 1fr);
@@ -178,7 +179,7 @@ header form {
 	color: #fff;
 }
 
-/* Types of Pokemon */
+
 .water {
 	background-color: var(--color-water);
 }
@@ -251,7 +252,7 @@ header form {
 	background-color: var(--color-dark);
 }
 
-/* Container Filters */
+
 .container-filters {
 	display: flex;
 	justify-content: center;
@@ -295,136 +296,140 @@ header form {
 	cursor: pointer;
 }
 
-/* 
-======================================= 
-Styles of Pokemon Single Page
-======================================= 
-*/
+/* POKEMON PAGE*/
 
-.main-pokemon {
+.pokemon-container {
+	width: 100%;
+	max-width: 900px;
+	margin: 0 auto;
+	background-color: #fff;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+	border-radius: 8px;
+	padding: 20px;
 	display: flex;
 	flex-direction: column;
-
-	margin-top: 100px;
-	margin-bottom: 50px;
-}
-
-.header-main-pokemon {
-	margin-top: 20px;
-
-	display: flex;
 	align-items: center;
-
+	text-align: center;
 	position: relative;
 }
 
-.number-pokemon {
-	position: absolute;
-	top: -130px;
-	left: 0;
 
-	font-size: 200px;
-	font-weight: 700;
-	color: var(--color-primary-hover);
-}
-
-.container-img-pokemon {
-	order: 2;
-	flex: 1;
-	padding: 25px 25px 25px 0;
-	height: 400px;
-}
-
-.container-img-pokemon img {
-	height: 100%;
-	width: 100%;
-}
-
-.container-info-pokemon {
+.pokemon-header {
 	display: flex;
-	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	flex-wrap: wrap;
+}
 
-	order: 1;
+.pokemon-number {
+	font-size: 50px;
+	color: red;
+	margin-right: 20px;
+}
+
+.pokemon-image img {
+	max-width: 200px;
+	max-height: 200px;
+}
+
+.pokemon-info {
+	text-align: center;
 	flex: 1;
 }
 
-.container-info-pokemon h1 {
-	text-align: right;
-	font-size: 60px;
+.pokemon-name {
+	font-size: 32px;
+	margin: 0;
+	color: #333;
 }
 
-.info-pokemon {
-	display: flex;
-	justify-content: space-between;
+.pokemon-types {
+	margin-top: 10px;
+}
 
+.type {
+	display: inline-block;
+	padding: 5px 10px;
+	margin: 5px;
+	border-radius: 5px;
+	font-size: 14px;
+	font-weight: bold;
+}
+
+.type-normal {
+	background-color: #a8a878;
+	color: #fff;
+}
+
+.type-fire {
+	background-color: #f08030;
+	color: #fff;
+}
+
+
+.pokemon-stats-container {
 	margin-top: 20px;
+	text-align: center;
 }
 
-.group-info{
-	display: flex;
-	flex-direction: column;
-	gap: 10px;
+h1 {
+	font-size: 24px;
+	color: #333;
 }
 
-.group-info p {
-	font-weight: 700;
-	font-size: 20px;
-}
-
-/* Stats */
-.container-stats {
-	display: flex;
-	gap: 50px;
-	align-items: center;
-}
-
-.stats {
-	display: flex;
-	flex-direction: column;
-	gap: 20px;
-	flex: 1;
-}
-
-.stat-group {
-	display: flex;
-	align-items: center;
+.pokemon-stats-list {
+	display: grid;
+	grid-template-columns: auto auto;
+	justify-content: center;
 	gap: 20px;
 }
 
-.stat-group span {
-	flex: 20%;
-	font-weight: 500;
-	font-size: 18px;
+.pokemon-stat-item {
+	text-align: center;
+}
+
+.stat-name {
+	font-size: 16px;
+	color: #555;
 }
 
 .progress-bar {
-	width: 100%;
-	height: 30px;
-	background-color: var(--color-primary);
-	border-radius: 10px;
+	width: 100px;
+	height: 10px;
+	background-color: #ddd;
+	border-radius: 5px;
+	margin: 5px auto;
+	position: relative;
 }
-/* Search Page */
 
-.p-search{
+.progress-fill {
+	height: 100%;
+	border-radius: 5px;
+	background-color: red;
+}
+
+
+
+.p-search {
 	margin-bottom: 30px;
 	font-size: 22px;
 }
 
-.p-search span{
+.p-search span {
 	font-weight: 700;
 }
 
-/* Loader */
 
-.container-loader{
+
+.container-loader {
 	display: flex;
 	justify-content: center;
 	margin: 200px 0;
 }
 
-/* Btn Load More */
 
-.container-btn-load-more{
+
+.container-btn-load-more {
 	display: flex;
 	justify-content: center;
 
@@ -432,7 +437,7 @@ Styles of Pokemon Single Page
 	margin-top: 20px;
 }
 
-.btn-load-more{
+.btn-load-more {
 	border: none;
 	padding: 15px 40px;
 	font-family: inherit;
@@ -442,7 +447,84 @@ Styles of Pokemon Single Page
 	cursor: pointer;
 }
 
-.btn-load-more:hover{
+.btn-load-more:hover {
 	background-color: var(--color-primary-hover);
 	color: #000;
+}
+
+
+
+
+/*POKEMON LIST*/
+.card-list-pokemon {
+	display: grid;
+}
+
+.pokemon-list-card {
+	background-color: white;
+	border-radius: 10px;
+	height: 250px;
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+	padding: 20px;
+	text-align: center;
+	transition: transform 0.3s ease-in-out;
+	cursor: pointer;
+}
+
+.pokemon-list-card:hover {
+	transform: scale(1.05);
+}
+
+.pokemon-list-image {
+	max-width: 100px;
+	max-height: 100px;
+	margin-bottom: 12px;
+}
+
+.pokemon-card-name {
+	font-size: 1.25rem;
+	margin: 0;
+	color: red;
+}
+
+.pokemon-list-type,
+.pokemon-list-number {
+	margin: 0;
+	color: black;
+}
+
+.pokemon-list-number {
+	font-size: 1rem;
+	color: #333;
+	margin: 0;
+}
+
+.pokemon-types-container {
+	display: flex;
+	margin-top: 7px;
+
+}
+
+.pokemon-types-container>p {
+	border-radius: 50px;
+	padding: 5px 8px;
+	color: #fff;
+	margin: 0 auto;
+}
+
+
+
+
+/*FOOTER*/
+.footer {
+	bottom: 0;
+	margin: 20px 0 0 0;
+	background-color: rgba(255, 251, 251, 0.8);
+	color: black;
+	padding: 20px 0;
+	text-align: center;
+}
+
+.red-text {
+	color: red;
 }

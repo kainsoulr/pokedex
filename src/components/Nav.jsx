@@ -5,10 +5,10 @@ import { PokemonContext } from "../context/PokemonContext";
 export const Nav = () => {
 
 
-	const {} = useContext(PokemonContext)
+	const { } = useContext(PokemonContext)
 
-    return (
-        <>
+	return (
+		<>
 			<header className='container'>
 				<Link to='/' className='logo'>
 					<img
@@ -48,6 +48,14 @@ export const Nav = () => {
 			</header>
 
 			<Outlet />
+
+			<footer className="footer">
+				<div className="container">
+					<p>
+					<span className="red-text">Pokédex</span> © ALL RIGHTS RESERVED.
+					</p>
+				</div>
+			</footer>
 		</>
-    )
+	)
 }
